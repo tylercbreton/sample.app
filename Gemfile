@@ -7,7 +7,8 @@ group :development, :test do
 end
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
 # Use SCSS for stylesheets
 group :test do
   gem 'selenium-webdriver', '2.35.1'

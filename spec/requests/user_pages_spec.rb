@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe "User pages" do
 
   before do 
     @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
@@ -26,6 +26,7 @@ describe User do
     it { should have_content('Sign up') }
     it { should have_title(full_title('Sign up')) }
   end
+  
   describe "signup page" do
     before { visit signup_path }
 
@@ -34,14 +35,13 @@ describe User do
   end
 
   describe "signup" do
-
     before { visit signup_path }
 
     let(:submit) { "Create my account" }
 
     describe "with invalid information" do
       it "should not create a user" do
-        expect { click_button submit }.not_to change(User, :count)
+      expect { click_button submit }.not_to change(User, :count)
       end
     end
 
@@ -59,8 +59,8 @@ describe User do
         it { should have_link('Sign out') }
         it { should have_title(user.name) }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        end
       end
-    end
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -73,9 +73,11 @@ describe User do
       before { @user.save }
       its(:remember_token) { should_not be_blank }
     end 
-      describe "edit" do
+  end
+
+  describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit edit_user_path(user) }
+    before { visit edit_user_path(user) } 
 
     describe "page" do
       it { should have_content("Update your profile") }
@@ -88,6 +90,5 @@ describe User do
 
       it { should have_content('error') }
     end
-  end
   end 
-end
+end 

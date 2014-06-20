@@ -15,6 +15,10 @@ class UsersController < ApplicationController
       redirect_to @user  
     else 
       render 'new'
+    end
+
+    def edit
+      @user = User.find(params[:id])
     end 
   end
 

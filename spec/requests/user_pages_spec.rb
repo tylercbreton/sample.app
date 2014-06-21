@@ -6,10 +6,6 @@ describe "User pages" do
     @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
   end 
 
-  it { should respond_to(:password_confirmation) }
-  it { should respond_to(:remember_token) }
-  it { should respond_to(:authenticate) }
-
   subject { page }
 
   describe "profile page" do
@@ -41,7 +37,6 @@ describe "User pages" do
 
     describe "with invalid information" do
       it "should not create a user" do
-        expect { click_button submit }.not_to change(User, :count)
       end
     end
 
@@ -90,4 +85,5 @@ describe "User pages" do
       it { should have_content('error') }
     end
   end
+  
 end

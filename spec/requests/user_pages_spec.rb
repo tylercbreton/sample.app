@@ -85,5 +85,4 @@ describe "User pages" do
       it { should have_content('error') }
     end
   end
-  
 end

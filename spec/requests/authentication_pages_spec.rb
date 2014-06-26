@@ -32,8 +32,8 @@ describe "Authentication" do
         fill_in "Name", with: new_name
         fill_in "Email", with: new_email
         fill_in "Password", with: user_password
-        fill_in "Confirm Password", with: user_password_confirmation
-        click_button "Save changes"
+        fill_in "Password Confirmation", with: user_password_confirmation
+        click_button "Sign in"
       end
       
       it { should have_title(new_name) }

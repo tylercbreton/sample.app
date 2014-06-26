@@ -21,13 +21,18 @@ describe "Authentication" do
     end
 
   describe "with valid information" do
+    let(:user) { FactoryGirl.create(:user) }
+
     let(:new_name)  { "New Name" }
     let(:new_email) { "new@example.com" }
+    let(:user_password) { "foobar" }
+    let(:user_password_confirmation) { "foobar" }
+    
     before do
         fill_in "Name", with: new_name
         fill_in "Email", with: new_email
-        fill_in "Password", with: user.password
-        fill_in "Confirm Password", with: user.password
+        fill_in "Password", with: user_password
+        fill_in "Confirm Password", with: user_password_confirmation
         click_button "Save changes"
       end
       
